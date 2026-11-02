@@ -1,582 +1,541 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Merit Point Home Tuition | Premium Home & Private Tutoring</title>
+  <title>Sankalp Biology | NEET & Board Specialist</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            }
+          }
+        }
+      }
+    }
+  </script>
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   
-  <!-- AOS Animation CSS -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+  <!-- Custom Styling for Glassmorphism & Animations -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-    
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #f8fafc;
-      overflow-x: hidden;
-    }
-
-    /* Glassmorphism Classes */
     .glass-card {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
-    }
-
-    .glass-nav {
       background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(229, 231, 235, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
     }
-
-    .glass-modal {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-    }
-
-    /* Subtle Animated Ambient Blobs */
-    .ambient-blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      z-index: -1;
-      opacity: 0.5;
-      animation: pulseFloat 8s infinite alternate ease-in-out;
-    }
-
-    @keyframes pulseFloat {
-      0% { transform: translateY(0px) scale(1); }
-      100% { transform: translateY(20px) scale(1.08); }
+    .hero-pattern {
+      background-image: radial-gradient(#10b981 0.75px, transparent 0.75px), radial-gradient(#059669 0.75px, #ffffff 0.75px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
     }
   </style>
 </head>
-<body class="text-slate-900 selection:bg-orange-500 selection:text-white relative">
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
 
-  <!-- Ambient Light Accents for Glassmorphism Depth -->
-  <div class="ambient-blob bg-orange-200 w-96 h-96 top-10 left-[-5%]"></div>
-  <div class="ambient-blob bg-orange-100 w-[500px] h-[500px] top-[40%] right-[-10%]"></div>
-  <div class="ambient-blob bg-amber-100 w-80 h-80 bottom-20 left-[20%]"></div>
+  <!-- Navigation Bar -->
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Brand Logo -->
+        <a href="#" class="flex items-center gap-2.5">
+          <div class="w-11 h-11 rounded-xl bg-brand-600 flex items-center justify-center text-white shadow-lg shadow-brand-500/30">
+            <i data-lucide="dna" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="text-xl font-extrabold tracking-tight text-slate-900 block leading-none">SANKALP</span>
+            <span class="text-xs font-semibold text-brand-600 uppercase tracking-widest">Biology Classes</span>
+          </div>
+        </a>
 
-  <!-- Navbar -->
-  <nav class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#home" class="flex items-center gap-2 group">
-        <div class="w-10 h-10 rounded-xl bg-orange-500 flex items-center justify-center text-white font-black shadow-md shadow-orange-500/30 group-hover:scale-105 transition">
-          M
-        </div>
-        <span class="text-xl font-extrabold tracking-tight text-slate-950">
-          Merit<span class="text-orange-500">Point</span>
-        </span>
-      </a>
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8 font-medium text-slate-600 text-sm">
+          <a href="#about" class="hover:text-brand-600 transition">About</a>
+          <a href="#courses" class="hover:text-brand-600 transition">Courses</a>
+          <a href="#calculator" class="hover:text-brand-600 transition">Fee Estimator</a>
+          <a href="#results" class="hover:text-brand-600 transition">Toppers</a>
+          <a href="#faq" class="hover:text-brand-600 transition">FAQs</a>
+        </nav>
 
-      <!-- Desktop Links -->
-      <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
-        <a href="#home" class="hover:text-orange-600 transition">Home</a>
-        <a href="#about" class="hover:text-orange-600 transition">About & Founder</a>
-        <a href="#support" class="hover:text-orange-600 transition">Support Us</a>
-      </div>
-
-      <!-- Action Buttons -->
-      <div class="hidden md:flex items-center gap-3">
-        <button onclick="openModal('teacherModal')" class="px-4 py-2 rounded-xl text-sm font-semibold border border-slate-300 hover:border-orange-500 hover:text-orange-600 transition bg-white/50">
-          Join as Teacher
-        </button>
-        <button onclick="openModal('parentModal')" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-orange-500 text-white hover:bg-orange-600 shadow-md shadow-orange-500/25 transition">
-          Book a Tutor
-        </button>
-      </div>
-
-      <!-- Mobile Menu Toggle -->
-      <button class="md:hidden text-slate-800" onclick="toggleMobileNav()">
-        <i data-lucide="menu" id="menuIcon"></i>
-      </button>
-    </div>
-
-    <!-- Mobile Dropdown -->
-    <div id="mobileMenu" class="hidden md:hidden px-6 pb-6 pt-2 bg-white/95 backdrop-blur-lg border-b border-slate-200 flex flex-col gap-4 text-center">
-      <a href="#home" onclick="toggleMobileNav()" class="font-medium text-slate-800 hover:text-orange-600">Home</a>
-      <a href="#about" onclick="toggleMobileNav()" class="font-medium text-slate-800 hover:text-orange-600">About & Founder</a>
-      <a href="#support" onclick="toggleMobileNav()" class="font-medium text-slate-800 hover:text-orange-600">Support Us</a>
-      <button onclick="toggleMobileNav(); openModal('teacherModal')" class="w-full py-2.5 rounded-xl border border-slate-300 text-slate-800 font-semibold">
-        Join as Teacher
-      </button>
-      <button onclick="toggleMobileNav(); openModal('parentModal')" class="w-full py-2.5 rounded-xl bg-orange-500 text-white font-semibold shadow-md shadow-orange-500/20">
-        Book a Tutor
-      </button>
-    </div>
-  </nav>
-
-  <!-- 1. Home Section (Hero) -->
-  <section id="home" class="min-h-screen pt-32 pb-20 px-6 flex items-center">
-    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      
-      <div class="lg:col-span-7 space-y-6" data-aos="fade-right">
-        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-100 border border-orange-200 text-orange-700 text-xs font-bold tracking-wide uppercase">
-          <i data-lucide="sparkles" class="w-4 h-4"></i> One-on-One Personalized Learning
-        </div>
-        
-        <h1 class="text-4xl sm:text-6xl font-extrabold text-slate-950 tracking-tight leading-[1.15]">
-          Empowering Young Minds with <span class="text-orange-500 underline decoration-orange-200 decoration-wavy">Expert Tutoring</span> at Your Doorstep.
-        </h1>
-        
-        <p class="text-slate-600 text-lg leading-relaxed max-w-xl">
-          Merit Point Home Tuition connects dedicated, background-verified tutors with students seeking academic excellence from Nursery to Class 12 and Competitive exams.
-        </p>
-
-        <div class="flex flex-wrap items-center gap-4 pt-2">
-          <button onclick="openModal('parentModal')" class="px-7 py-3.5 rounded-xl font-bold bg-orange-500 hover:bg-orange-600 text-white shadow-lg shadow-orange-500/30 transition transform hover:-translate-y-0.5 flex items-center gap-2">
-            <span>Find Tutors for Your Child</span>
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-          </button>
-          
-          <button onclick="openModal('teacherModal')" class="px-7 py-3.5 rounded-xl font-bold border border-slate-300 hover:border-slate-800 bg-white/70 text-slate-800 transition">
-            Apply as a Tutor
+        <!-- Action Button -->
+        <div class="hidden md:flex items-center gap-4">
+          <button onclick="toggleModal(true)" class="bg-brand-600 hover:bg-brand-700 text-white font-medium px-5 py-2.5 rounded-xl shadow-md hover:shadow-brand-500/25 transition">
+            Apply Admission
           </button>
         </div>
 
-        <!-- Trust Badges -->
-        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200">
-          <div>
-            <p class="text-2xl font-black text-slate-900">100%</p>
-            <p class="text-xs text-slate-500 font-medium">Verified Tutors</p>
-          </div>
-          <div>
-            <p class="text-2xl font-black text-slate-900">1-on-1</p>
-            <p class="text-xs text-slate-500 font-medium">Personal Focus</p>
-          </div>
-          <div>
-            <p class="text-2xl font-black text-orange-500">Free</p>
-            <p class="text-xs text-slate-500 font-medium">Demo Class Option</p>
-          </div>
-        </div>
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-700 rounded-lg focus:outline-none">
+          <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+        </button>
       </div>
+    </div>
 
-      <!-- Hero Visual Card -->
-      <div class="lg:col-span-5" data-aos="fade-left">
-        <div class="glass-card rounded-3xl p-6 sm:p-8 relative">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
-              <div>
-                <p class="text-xs font-semibold text-slate-400 uppercase">Direct Helpline</p>
-                <p class="text-lg font-bold text-slate-900">+91 7370971323</p>
-              </div>
-              <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
-                <i data-lucide="phone-call" class="w-5 h-5"></i>
-              </div>
-            </div>
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-b border-slate-200 px-6 py-5 shadow-xl space-y-4">
+      <a href="#about" onclick="toggleMobileMenu()" class="block font-medium text-slate-700 hover:text-brand-600">About</a>
+      <a href="#courses" onclick="toggleMobileMenu()" class="block font-medium text-slate-700 hover:text-brand-600">Courses</a>
+      <a href="#calculator" onclick="toggleMobileMenu()" class="block font-medium text-slate-700 hover:text-brand-600">Fee Estimator</a>
+      <a href="#results" onclick="toggleMobileMenu()" class="block font-medium text-slate-700 hover:text-brand-600">Toppers</a>
+      <a href="#faq" onclick="toggleMobileMenu()" class="block font-medium text-slate-700 hover:text-brand-600">FAQs</a>
+      <button onclick="toggleModal(true); toggleMobileMenu();" class="w-full bg-brand-600 text-white font-semibold py-3 rounded-xl shadow-md">
+        Apply For Admission
+      </button>
+    </div>
+  </header>
 
-            <!-- Feature Badges -->
-            <div class="p-4 rounded-2xl bg-white/80 border border-slate-100 space-y-3">
-              <div class="flex items-start gap-3">
-                <div class="p-2 rounded-lg bg-orange-100 text-orange-600 mt-0.5">
-                  <i data-lucide="check-circle" class="w-4 h-4"></i>
-                </div>
-                <div>
-                  <h4 class="font-bold text-sm text-slate-900">Tailored Lesson Plans</h4>
-                  <p class="text-xs text-slate-500">Curriculums tuned to CBSE, ICSE, and State Boards.</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <div class="p-2 rounded-lg bg-orange-100 text-orange-600 mt-0.5">
-                  <i data-lucide="calendar" class="w-4 h-4"></i>
-                </div>
-                <div>
-                  <h4 class="font-bold text-sm text-slate-900">Flexible Scheduling</h4>
-                  <p class="text-xs text-slate-500">Pick hours and days convenient for your routine.</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <div class="p-2 rounded-lg bg-orange-100 text-orange-600 mt-0.5">
-                  <i data-lucide="shield-check" class="w-4 h-4"></i>
-                </div>
-                <div>
-                  <h4 class="font-bold text-sm text-slate-900">Identity-Verified Educators</h4>
-                  <p class="text-xs text-slate-500">Every instructor undergoes rigorous screening.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Quick WhatsApp CTA -->
-            <a href="https://wa.me/917370971323?text=Hello%20Merit%20Point%2C%20I%20want%20to%20inquire%20about%20tutoring." target="_blank" class="w-full py-3.5 px-4 rounded-xl font-bold bg-emerald-600 hover:bg-emerald-700 text-white flex items-center justify-center gap-2 transition shadow-md shadow-emerald-600/20">
-              <i data-lucide="message-circle" class="w-5 h-5"></i>
-              <span>Instant Chat on WhatsApp</span>
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden hero-pattern">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-800 text-xs font-semibold">
+            <i data-lucide="award" class="w-4 h-4"></i>
+            Premier Biology Coaching for NEET & Boards
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight">
+            Crack NEET with <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-emerald-400">Mastery in Biology.</span>
+          </h1>
+          <p class="text-base sm:text-lg text-slate-600 max-w-xl mx-auto lg:mx-0">
+            NCERT-focused structured modules, 3D animated conceptual diagrams, daily practice papers (DPPs), and personalized mentor support designed to secure 350+ marks.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <button onclick="toggleModal(true)" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold shadow-lg shadow-brand-500/30 transition">
+              Book Free Demo Class
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+            <a href="https://wa.me/919999999999?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Sankalp%20Biology%20classes" target="_blank" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-semibold transition">
+              <i data-lucide="message-circle" class="w-4 h-4 text-brand-600"></i>
+              WhatsApp Us
             </a>
           </div>
-        </div>
-      </div>
 
-    </div>
-  </section>
-
-  <!-- Core Highlights -->
-  <section class="py-16 px-6 max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="glass-card p-6 rounded-2xl hover:border-orange-300 transition group" data-aos="fade-up" data-aos-delay="100">
-        <div class="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center mb-4 group-hover:scale-110 transition">
-          <i data-lucide="book-open" class="w-6 h-6"></i>
-        </div>
-        <h3 class="text-lg font-bold text-slate-900 mb-2">Subject Mastery</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Dedicated coaching for Mathematics, Science, English, Commerce, and foundation competitive syllabus.</p>
-      </div>
-
-      <div class="glass-card p-6 rounded-2xl hover:border-orange-300 transition group" data-aos="fade-up" data-aos-delay="200">
-        <div class="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center mb-4 group-hover:scale-110 transition">
-          <i data-lucide="users" class="w-6 h-6"></i>
-        </div>
-        <h3 class="text-lg font-bold text-slate-900 mb-2">Verified Educators</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Strict identity checks, qualifications analysis, and prior teaching performance assessments.</p>
-      </div>
-
-      <div class="glass-card p-6 rounded-2xl hover:border-orange-300 transition group" data-aos="fade-up" data-aos-delay="300">
-        <div class="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center mb-4 group-hover:scale-110 transition">
-          <i data-lucide="trending-up" class="w-6 h-6"></i>
-        </div>
-        <h3 class="text-lg font-bold text-slate-900 mb-2">Measurable Progress</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Regular evaluations, mock tests, and honest parent-teacher feedback loops to track growth.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. About Us & Founder Details Section -->
-  <section id="about" class="py-20 px-6 max-w-7xl mx-auto">
-    <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
-      <h2 class="text-xs uppercase tracking-widest text-orange-600 font-extrabold mb-2">Our Foundation</h2>
-      <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-950">About Merit Point & Leadership</h3>
-      <div class="h-1 w-16 bg-orange-500 mx-auto mt-4 rounded-full"></div>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-      
-      <!-- About Us Content -->
-      <div class="lg:col-span-7 glass-card p-8 sm:p-10 rounded-3xl" data-aos="fade-right">
-        <h4 class="text-2xl font-bold text-slate-950 mb-4">Bridging the Gap Between Curious Minds and Skilled Mentors</h4>
-        <p class="text-slate-600 leading-relaxed mb-4 text-sm sm:text-base">
-          At <strong class="text-slate-900">Merit Point Home Tuition</strong>, we believe every child has a distinct learning rhythm. Large classrooms often miss silent doubts; our one-to-one home tutoring model returns the focus back to where it matters most: your child's confidence, conceptual clarity, and self-esteem.
-        </p>
-        <p class="text-slate-600 leading-relaxed text-sm sm:text-base mb-6">
-          Whether your goal is securing school-board rankings, building basic calculation speed, or clarifying tough science principles, we provide tutors who coach with patience, discipline, and dedication.
-        </p>
-
-        <div class="grid grid-cols-2 gap-4 border-t border-slate-100 pt-6">
-          <div>
-            <p class="font-black text-slate-900 text-lg">Integrity & Quality</p>
-            <p class="text-xs text-slate-500">Every tutor matches our rigorous teaching and background standards.</p>
-          </div>
-          <div>
-            <p class="font-black text-slate-900 text-lg">Affordable Plans</p>
-            <p class="text-xs text-slate-500">High-caliber home tutoring at reasonable, transparent monthly fees.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Founder Profile Card -->
-      <div class="lg:col-span-5" data-aos="fade-left">
-        <div class="glass-card rounded-3xl p-8 border border-orange-200/50 shadow-xl relative overflow-hidden">
-          <div class="absolute -top-12 -right-12 w-36 h-36 bg-orange-500/10 rounded-full"></div>
-          
-          <div class="flex items-center gap-4 mb-6">
-            <div class="w-16 h-16 rounded-2xl bg-slate-900 text-white font-extrabold text-2xl flex items-center justify-center shadow-lg shadow-slate-900/20">
-              MP
+          <!-- Feature Quick Stats -->
+          <div class="pt-6 grid grid-cols-3 gap-4 border-t border-slate-200">
+            <div>
+              <p class="text-2xl font-bold text-slate-900">350+</p>
+              <p class="text-xs text-slate-500 font-medium">NEET Bio Avg Score</p>
             </div>
             <div>
-              <h4 class="text-xl font-extrabold text-slate-950">Academic Director</h4>
-              <p class="text-xs font-semibold text-orange-600 uppercase tracking-wider">Founder, Merit Point Home Tuition</p>
+              <p class="text-2xl font-bold text-slate-900">100%</p>
+              <p class="text-xs text-slate-500 font-medium">NCERT Coverage</p>
+            </div>
+            <div>
+              <p class="text-2xl font-bold text-slate-900">1500+</p>
+              <p class="text-xs text-slate-500 font-medium">Students Mentored</p>
             </div>
           </div>
+        </div>
 
-          <blockquote class="text-slate-600 italic text-sm mb-6 leading-relaxed">
-            "Education transforms when a student stops hesitating to ask questions. Our purpose at Merit Point is to bring thoughtful mentors into homes so no learning gap remains unresolved."
-          </blockquote>
+        <!-- Visual Hero Card -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative w-full max-w-md mx-auto">
+            <div class="absolute -top-6 -left-6 w-44 h-44 bg-brand-500/20 rounded-full filter blur-2xl"></div>
+            <div class="absolute -bottom-6 -right-6 w-44 h-44 bg-emerald-500/20 rounded-full filter blur-2xl"></div>
+            
+            <div class="glass-card rounded-2xl p-6 sm:p-8 shadow-2xl relative border border-slate-100">
+              <div class="flex items-center gap-4 mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-brand-100 flex items-center justify-center text-brand-700">
+                  <i data-lucide="microscope" class="w-8 h-8"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-900">Target NEET 2027/28</h3>
+                  <p class="text-xs text-slate-500">Foundation & Advanced Modules</p>
+                </div>
+              </div>
 
-          <div class="space-y-3 border-t border-slate-100 pt-5 text-xs text-slate-600 font-medium">
-            <div class="flex items-center gap-2">
-              <i data-lucide="phone" class="w-4 h-4 text-orange-500"></i>
-              <span>+91 7370971323</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <i data-lucide="mail" class="w-4 h-4 text-orange-500"></i>
-              <span>support@meritpointtuition.com</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <i data-lucide="map-pin" class="w-4 h-4 text-orange-500"></i>
-              <span>Doorstep Service across Key City Zones</span>
+              <div class="space-y-4">
+                <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50">
+                  <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-600 flex-shrink-0"></i>
+                  <span class="text-sm font-medium text-slate-700">Line-by-line NCERT Decoding</span>
+                </div>
+                <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50">
+                  <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-600 flex-shrink-0"></i>
+                  <span class="text-sm font-medium text-slate-700">Topic-wise DPPs & OMR Weekly Tests</span>
+                </div>
+                <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50">
+                  <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-600 flex-shrink-0"></i>
+                  <span class="text-sm font-medium text-slate-700">Microscopy & Anatomy Visual Aids</span>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between">
+                <div>
+                  <span class="text-xs text-slate-400 block">Batch Starts</span>
+                  <span class="text-sm font-bold text-brand-700">Every Monday</span>
+                </div>
+                <button onclick="toggleModal(true)" class="text-xs font-semibold uppercase tracking-wider text-brand-600 hover:text-brand-800 flex items-center gap-1">
+                  Enroll Early &rarr;
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- 5. Support Us Section -->
-  <section id="support" class="py-20 px-6 max-w-7xl mx-auto">
-    <div class="glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden text-center" data-aos="zoom-in">
-      <div class="max-w-3xl mx-auto space-y-6">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-bold uppercase">
-          <i data-lucide="heart" class="w-3.5 h-3.5 fill-orange-500 text-orange-500"></i> Community Support
-        </span>
-        
-        <h2 class="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight">
-          Support Our Mission for Accessible Learning
-        </h2>
-        
-        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-          Merit Point runs localized tutoring programs and study-material drives for deserving students from financially constrained backgrounds. Help us empower student education by recommending a family, joining our voluntary mentorship network, or sponsoring tuition modules.
-        </p>
+  <!-- Courses Section -->
+  <section id="courses" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-2">Our Programs</h2>
+        <p class="text-3xl font-extrabold text-slate-900">Tailored Modules for Every Student</p>
+      </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 text-left">
-          <div class="bg-white/70 p-4 rounded-xl border border-slate-200">
-            <h5 class="font-bold text-slate-900 text-sm">Spread the Word</h5>
-            <p class="text-xs text-slate-500 mt-1">Recommend our certified home tutors to friends and neighborhoods.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="border border-slate-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:border-brand-500">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-emerald-50 text-brand-600 flex items-center justify-center mb-5">
+              <i data-lucide="book-open" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Class 11 Foundation</h3>
+            <p class="text-sm text-slate-500 mb-4">Deep dive into Plant Physiology, Cell Biology, Diversity in Living World with Board & NEET basics.</p>
+            <ul class="text-xs text-slate-600 space-y-2 mb-6">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-600"></i> Board + Foundation Level</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-600"></i> Daily Question Sheet</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-600"></i> Concept Clarity Classes</li>
+            </ul>
           </div>
-          <div class="bg-white/70 p-4 rounded-xl border border-slate-200">
-            <h5 class="font-bold text-slate-900 text-sm">Volunteer Teaching</h5>
-            <p class="text-xs text-slate-500 mt-1">Offer 2 hours a week to mentor talented students who need guidance.</p>
+          <button onclick="openCourseEnrollment('Class 11 Foundation')" class="w-full py-2.5 rounded-xl border border-brand-600 text-brand-600 font-semibold hover:bg-brand-600 hover:text-white transition">Enroll Course</button>
+        </div>
+
+        <!-- Card 2 (Featured) -->
+        <div class="border-2 border-brand-500 rounded-2xl p-6 shadow-xl relative flex flex-col justify-between bg-gradient-to-b from-brand-50/40 to-white">
+          <div class="absolute -top-3.5 right-6 px-3 py-1 bg-brand-600 text-white rounded-full text-[11px] font-bold uppercase tracking-wider">
+            Most Popular
           </div>
-          <div class="bg-white/70 p-4 rounded-xl border border-slate-200">
-            <h5 class="font-bold text-slate-900 text-sm">Feedback & Guidance</h5>
-            <p class="text-xs text-slate-500 mt-1">Help us constantly refine our pedagogy and tutor assessment tests.</p>
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-brand-600 text-white flex items-center justify-center mb-5">
+              <i data-lucide="sparkles" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Class 12 Boards + NEET</h3>
+            <p class="text-sm text-slate-500 mb-4">Genetics, Reproduction, Biotechnology and Ecology combined with high-frequency NEET drills.</p>
+            <ul class="text-xs text-slate-600 space-y-2 mb-6">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-600"></i> Full Syllabus Revision</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-600"></i> Past 15 Years NEET Analysis</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-600"></i> Diagram Drawing Sessions</li>
+            </ul>
+          </div>
+          <button onclick="openCourseEnrollment('Class 12 NEET Booster')" class="w-full py-2.5 rounded-xl bg-brand-600 text-white font-semibold hover:bg-brand-700 shadow-md transition">Enroll Course</button>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="border border-slate-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:border-brand-500">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-emerald-50 text-brand-600 flex items-center justify-center mb-5">
+              <i data-lucide="target" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">NEET Dropper / Repeater</h3>
+            <p class="text-sm text-slate-500 mb-4">Aggressive 1-year test series and high-yield focus designed exclusively for targeting 360/360 in NEET Bio.</p>
+            <ul class="text-xs text-slate-600 space-y-2 mb-6">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-600"></i> 10,000+ Practice MCQs</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-600"></i> Time-Management Drills</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-600"></i> 1-on-1 Weak Area Clearing</li>
+            </ul>
+          </div>
+          <button onclick="openCourseEnrollment('Dropper Batch')" class="w-full py-2.5 rounded-xl border border-brand-600 text-brand-600 font-semibold hover:bg-brand-600 hover:text-white transition">Enroll Course</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dynamic Fee Calculator Section -->
+  <section id="calculator" class="py-20 bg-slate-100/70 border-y border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-2">Transparent Estimator</h2>
+        <p class="text-2xl sm:text-3xl font-extrabold text-slate-900">Estimate Your Tuition Fee</p>
+      </div>
+
+      <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-200">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div class="space-y-5">
+            <div>
+              <label class="block text-xs font-semibold uppercase text-slate-500 mb-2">Target Grade</label>
+              <select id="calc-grade" class="w-full p-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-800 text-sm focus:ring-2 focus:ring-brand-500 outline-none">
+                <option value="11">Class 11th Biology</option>
+                <option value="12">Class 12th Biology</option>
+                <option value="dropper">Dropper / Target NEET</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold uppercase text-slate-500 mb-2">Mode of Learning</label>
+              <div class="grid grid-cols-2 gap-3">
+                <label class="flex items-center gap-2 p-3 rounded-xl border border-slate-200 cursor-pointer has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50">
+                  <input type="radio" name="calc-mode" value="offline" checked class="accent-brand-600">
+                  <span class="text-xs font-medium text-slate-800">Classroom</span>
+                </label>
+                <label class="flex items-center gap-2 p-3 rounded-xl border border-slate-200 cursor-pointer has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50">
+                  <input type="radio" name="calc-mode" value="hybrid" class="accent-brand-600">
+                  <span class="text-xs font-medium text-slate-800">Hybrid / Online</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label class="flex items-center gap-2 cursor-pointer pt-2">
+                <input type="checkbox" id="calc-test-series" checked class="w-4 h-4 accent-brand-600 rounded">
+                <span class="text-xs font-medium text-slate-700">Include All-India NEET Mock Test Series</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Total Calculation Display Card -->
+          <div class="bg-slate-900 text-white rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Estimated Tuition Plan</p>
+              <div class="text-4xl font-extrabold text-brand-400" id="calc-total">₹18,000</div>
+              <p class="text-xs text-slate-400 mt-2" id="calc-summary">Annual fee package (Installments available)</p>
+            </div>
+
+            <div class="mt-8 pt-4 border-t border-slate-800">
+              <button onclick="bookWithCalculatedFee()" class="w-full py-3 bg-brand-500 hover:bg-brand-600 text-white font-semibold rounded-xl transition text-sm">
+                Claim Scholarship Seat
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section (Accordion) -->
+  <section id="faq" class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-2">Got Questions?</h2>
+        <p class="text-3xl font-extrabold text-slate-900">Frequently Asked Questions</p>
+      </div>
+
+      <div class="space-y-4" id="faq-container">
+        <!-- FAQ item 1 -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden transition">
+          <button class="faq-toggle w-full flex items-center justify-between p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+            <span>What makes Sankalp Biology different from other institutes?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5 text-sm text-slate-600">
+            Hamara primary focus line-by-line NCERT decoding par rehta hai. Har chapter ke baad 3D diagrams, animated visualization aur PYQs ka comprehensive analysis karate hain jisse rote learning (ratna) kam ho aur direct retention badhe.
           </div>
         </div>
 
-        <div class="pt-6 flex flex-wrap justify-center gap-4">
-          <a href="https://wa.me/917370971323?text=Hello%20Merit%20Point%2C%20I%20would%20like%20to%20support%20or%20collaborate%20with%20your%20education%20initiative." target="_blank" class="px-8 py-3.5 rounded-xl font-bold bg-slate-950 hover:bg-orange-600 text-white transition flex items-center gap-2">
-            <i data-lucide="handshake" class="w-4 h-4"></i>
-            <span>Collaborate With Us</span>
-          </a>
+        <!-- FAQ item 2 -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden transition">
+          <button class="faq-toggle w-full flex items-center justify-between p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+            <span>Can I attend a free demo lecture before paying?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5 text-sm text-slate-600">
+            Haan, bilkul! Sabhi new students ke liye 2 continuous free demo classes provide ki jaati hain taaki aap teaching style aur classroom atmosphere ko thoroughly samajh sakein.
+          </div>
+        </div>
+
+        <!-- FAQ item 3 -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden transition">
+          <button class="faq-toggle w-full flex items-center justify-between p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+            <span>How are doubts solved outside classroom hours?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5 text-sm text-slate-600">
+            Dedicated daily doubt sessions conduct hote hain. Saath hi students ke paas direct WhatsApp faculty desk access hota hai jahan questions submit karne par verified solutions provide kiye jaate hain.
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="glass-nav py-8 px-6 border-t border-slate-200">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-medium text-slate-500">
-      <div class="flex items-center gap-2 text-slate-900 font-bold">
-        <span class="w-6 h-6 rounded-md bg-orange-500 text-white flex items-center justify-center text-xs">M</span>
-        Merit Point Home Tuition
-      </div>
-      <p>© 2026 Merit Point Home Tuition. All rights reserved.</p>
-      <div class="flex gap-4">
-        <a href="#home" class="hover:text-orange-600 transition">Back to Top</a>
-        <a href="https://wa.me/917370971323" class="hover:text-orange-600 transition">Direct WhatsApp</a>
+  <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-brand-600 flex items-center justify-center text-white">
+            <i data-lucide="dna" class="w-5 h-5"></i>
+          </div>
+          <span class="text-white font-bold text-base">Sankalp Biology Tuition</span>
+        </div>
+        <p>&copy; 2026 Sankalp Biology. All rights reserved. Built for future medical leaders.</p>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-white transition">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition">Terms</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- ==================== 2. TEACHER APPLY MODAL ==================== -->
-  <div id="teacherModal" class="fixed inset-0 z-50 bg-slate-950/40 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="glass-modal w-full max-w-xl rounded-3xl p-6 sm:p-8 relative shadow-2xl overflow-y-auto max-h-[90vh]">
-      
-      <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-        <div>
-          <h3 class="text-xl font-extrabold text-slate-900">Teacher Application Form</h3>
-          <p class="text-xs text-slate-500">Join our team of verified home educators</p>
-        </div>
-        <button onclick="closeModal('teacherModal')" class="p-2 text-slate-400 hover:text-slate-900 transition">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
+  <!-- Modal Registration Form -->
+  <div id="lead-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative animate-in fade-in zoom-in-95 duration-200">
+      <button onclick="toggleModal(false)" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
 
-      <form onsubmit="handleTeacherSubmit(event)" class="space-y-4 pt-4">
+      <h3 class="text-2xl font-bold text-slate-900 mb-1">Book Your Seat / Demo</h3>
+      <p class="text-xs text-slate-500 mb-6">Fill this form & our academic counselor will connect within 24 hours.</p>
+
+      <form id="admission-form" class="space-y-4">
         <div>
-          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Full Name</label>
-          <input type="text" id="tName" required placeholder="e.g. Rahul Sharma" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-orange-500 bg-white/70">
+          <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Student's Full Name</label>
+          <input type="text" id="student-name" required placeholder="Ex: Rahul Sharma" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 text-sm outline-none">
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Contact Number</label>
-            <input type="tel" id="tPhone" required placeholder="10-digit number" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-orange-500 bg-white/70">
+            <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Phone Number</label>
+            <input type="tel" id="student-phone" required placeholder="10-digit mobile" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 text-sm outline-none">
           </div>
           <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Highest Qualification</label>
-            <input type="text" id="tEdu" required placeholder="e.g. B.Tech / M.Sc / B.Ed" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-orange-500 bg-white/70">
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Subjects You Teach</label>
-            <input type="text" id="tSubjects" required placeholder="e.g. Math, Physics, English" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-orange-500 bg-white/70">
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Preferred Classes</label>
-            <input type="text" id="tClasses" required placeholder="e.g. Class 6-10 / 11-12" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-orange-500 bg-white/70">
+            <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Selected Course</label>
+            <select id="modal-course" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 text-sm outline-none">
+              <option value="Class 11 Foundation">Class 11 Foundation</option>
+              <option value="Class 12 NEET Booster">Class 12 NEET Booster</option>
+              <option value="Dropper Batch">Dropper / Repeater Batch</option>
+            </select>
           </div>
         </div>
 
         <div>
-          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Preferred Locations / Areas</label>
-          <input type="text" id="tLocation" required placeholder="Your city/locality areas you can travel to" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-orange-500 bg-white/70">
+          <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">City / Area</label>
+          <input type="text" id="student-city" placeholder="Ex: Ranchi / Dhanbad / Patna" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 text-sm outline-none">
         </div>
 
-        <div>
-          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Teaching Experience (Years / Details)</label>
-          <textarea id="tExp" rows="2" placeholder="Briefly describe your tutoring background" class="w-full px-4 py-2 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-orange-500 bg-white/70"></textarea>
-        </div>
-
-        <button type="submit" class="w-full py-3.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm shadow-lg shadow-orange-500/25 transition flex items-center justify-center gap-2">
-          <i data-lucide="send" class="w-4 h-4"></i>
-          <span>Submit Application via WhatsApp</span>
+        <button type="submit" class="w-full py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow-lg shadow-brand-500/25 transition mt-2">
+          Confirm Free Registration
         </button>
       </form>
-
     </div>
   </div>
 
-  <!-- ==================== 3. PARENTS INQUIRY MODAL ==================== -->
-  <div id="parentModal" class="fixed inset-0 z-50 bg-slate-950/40 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="glass-modal w-full max-w-xl rounded-3xl p-6 sm:p-8 relative shadow-2xl overflow-y-auto max-h-[90vh]">
-      
-      <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-        <div>
-          <h3 class="text-xl font-extrabold text-slate-900">Parent / Student Inquiry</h3>
-          <p class="text-xs text-slate-500">Request a verified home tutor for your home</p>
-        </div>
-        <button onclick="closeModal('parentModal')" class="p-2 text-slate-400 hover:text-slate-900 transition">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <form onsubmit="handleParentSubmit(event)" class="space-y-4 pt-4">
-        <div>
-          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Parent's / Guardian's Name</label>
-          <input type="text" id="pName" required placeholder="e.g. S. K. Verma" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-orange-500 bg-white/70">
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Phone Number</label>
-            <input type="tel" id="pPhone" required placeholder="10-digit mobile number" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-orange-500 bg-white/70">
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Student's Class / Grade</label>
-            <input type="text" id="pGrade" required placeholder="e.g. 9th Standard (CBSE)" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-orange-500 bg-white/70">
-          </div>
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Subjects Required</label>
-          <input type="text" id="pSubjects" required placeholder="e.g. Science & Mathematics" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-orange-500 bg-white/70">
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Home Address / Location Landmark</label>
-          <input type="text" id="pLocation" required placeholder="Area, Landmark, Street" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-orange-500 bg-white/70">
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Special Requirements (Optional)</label>
-          <textarea id="pRequirements" rows="2" placeholder="e.g. Female tutor preferred, evening timings, demo class required" class="w-full px-4 py-2 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-orange-500 bg-white/70"></textarea>
-        </div>
-
-        <button type="submit" class="w-full py-3.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm shadow-lg shadow-orange-500/25 transition flex items-center justify-center gap-2">
-          <i data-lucide="send" class="w-4 h-4"></i>
-          <span>Send Inquiry via WhatsApp</span>
-        </button>
-      </form>
-
-    </div>
-  </div>
-
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Vanilla Dynamic JavaScript -->
   <script>
-    // Initialize Icons and AOS
+    // Initialize Lucide Icons
     lucide.createIcons();
-    AOS.init({
-      duration: 700,
-      once: true,
-      easing: 'ease-out-cubic'
+
+    // Mobile Navbar Drawer Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function toggleMobileMenu() {
+      mobileMenu.classList.toggle('hidden');
+    }
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+    // Navbar Scrolled Glassmorphism State
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 30) {
+        nav.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+      } else {
+        nav.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+      }
     });
 
-    const WHATSAPP_PHONE = "917370971323";
+    // Dynamic Fee Estimator Logic
+    const basePrices = {
+      '11': 16000,
+      '12': 18000,
+      'dropper': 22000
+    };
 
-    // Mobile Navbar Toggle
-    function toggleMobileNav() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('hidden');
+    function recalculateFee() {
+      const grade = document.getElementById('calc-grade').value;
+      const mode = document.querySelector('input[name="calc-mode"]:checked').value;
+      const testSeries = document.getElementById('calc-test-series').checked;
+
+      let total = basePrices[grade] || 18000;
+
+      // Online/Hybrid discount
+      if (mode === 'hybrid') {
+        total -= 3000;
+      }
+
+      // Add Test Series
+      if (testSeries) {
+        total += 2500;
+      }
+
+      document.getElementById('calc-total').innerText = '₹' + total.toLocaleString('en-IN');
     }
 
-    // Modal Control
-    function openModal(id) {
-      const modal = document.getElementById(id);
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
+    document.getElementById('calc-grade').addEventListener('change', recalculateFee);
+    document.querySelectorAll('input[name="calc-mode"]').forEach(r => r.addEventListener('change', recalculateFee));
+    document.getElementById('calc-test-series').addEventListener('change', recalculateFee);
+    recalculateFee();
+
+    // Modal Operations
+    const modal = document.getElementById('lead-modal');
+    function toggleModal(open) {
+      if (open) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      } else {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
     }
 
-    function closeModal(id) {
-      const modal = document.getElementById(id);
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
+    function openCourseEnrollment(courseName) {
+      document.getElementById('modal-course').value = courseName;
+      toggleModal(true);
     }
 
-    // Close on outside click
-    window.onclick = function(e) {
-      const tModal = document.getElementById('teacherModal');
-      const pModal = document.getElementById('parentModal');
-      if (e.target === tModal) closeModal('teacherModal');
-      if (e.target === pModal) closeModal('parentModal');
+    function bookWithCalculatedFee() {
+      toggleModal(true);
     }
 
-    // Handle Teacher Apply Form
-    function handleTeacherSubmit(e) {
+    // Modal Form Submit & WhatsApp Redirection
+    document.getElementById('admission-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      const name = document.getElementById('tName').value;
-      const phone = document.getElementById('tPhone').value;
-      const edu = document.getElementById('tEdu').value;
-      const subjects = document.getElementById('tSubjects').value;
-      const classes = document.getElementById('tClasses').value;
-      const loc = document.getElementById('tLocation').value;
-      const exp = document.getElementById('tExp').value;
+      const name = document.getElementById('student-name').value;
+      const phone = document.getElementById('student-phone').value;
+      const course = document.getElementById('modal-course').value;
+      const city = document.getElementById('student-city').value || 'Not specified';
 
-      const message = `*Teacher Application - Merit Point Home Tuition*%0A`
-        + `• *Name:* ${encodeURIComponent(name)}%0A`
-        + `• *Phone:* ${encodeURIComponent(phone)}%0A`
-        + `• *Qualification:* ${encodeURIComponent(edu)}%0A`
-        + `• *Subjects:* ${encodeURIComponent(subjects)}%0A`
-        + `• *Classes:* ${encodeURIComponent(classes)}%0A`
-        + `• *Preferred Area:* ${encodeURIComponent(loc)}%0A`
-        + `• *Experience:* ${encodeURIComponent(exp || 'N/A')}`;
+      // WhatsApp API Dynamic Redirection
+      const msg = `*New Admission Enquiry - Sankalp Biology*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Course:* ${course}%0A*Location:* ${city}`;
+      const targetPhone = "919999999999"; // Institute phone number replace karein
+      
+      toggleModal(false);
+      window.open(`https://wa.me/${targetPhone}?text=${msg}`, '_blank');
+      this.reset();
+    });
 
-      window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${message}`, '_blank');
-      closeModal('teacherModal');
-    }
+    // Accordion Logic for FAQs
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector('svg');
+        const isOpen = !content.classList.contains('hidden');
 
-    // Handle Parent Inquiry Form
-    function handleParentSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('pName').value;
-      const phone = document.getElementById('pPhone').value;
-      const grade = document.getElementById('pGrade').value;
-      const subjects = document.getElementById('pSubjects').value;
-      const location = document.getElementById('pLocation').value;
-      const req = document.getElementById('pRequirements').value;
+        // Close all
+        document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.faq-toggle svg').forEach(i => i.style.transform = 'rotate(0deg)');
 
-      const message = `*New Parent Inquiry - Merit Point Home Tuition*%0A`
-        + `• *Parent Name:* ${encodeURIComponent(name)}%0A`
-        + `• *Phone:* ${encodeURIComponent(phone)}%0A`
-        + `• *Student Class:* ${encodeURIComponent(grade)}%0A`
-        + `• *Subjects Needed:* ${encodeURIComponent(subjects)}%0A`
-        + `• *Location/Address:* ${encodeURIComponent(location)}%0A`
-        + `• *Notes:* ${encodeURIComponent(req || 'None')}`;
-
-      window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${message}`, '_blank');
-      closeModal('parentModal');
-    }
+        // Toggle clicked
+        if (!isOpen) {
+          content.classList.remove('hidden');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
   </script>
 </body>
 </html>
